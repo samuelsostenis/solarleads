@@ -7,17 +7,27 @@ const { query } = require('../database');
 // ============================================
 
 const authRoutes = require('./auth');
+const usersRoutes = require('./users');
+const messagesRoutes = require('./messages');
+const automationsRoutes = require('./automations');
 const validate = require('../middleware/validate');
 const { verifyTokenMiddleware } = require('../middleware/auth');
 const { messagesSchema } = require('../schemas/messages');
 const { campaignSchema } = require('../schemas/campaigns');
 const { requireRole } = require('../middleware/roles');
 // const leadsRoutes = require('./leads');
-// const messagesRoutes = require('./messages');
 // const pipelineRoutes = require('./pipeline');
-// const automationsRoutes = require('./automations');
 // const campaignsRoutes = require('./campaigns');
 // const webhooksRoutes = require('./webhooks');
+
+// ============================================
+// REGISTRAR ROTAS
+// ============================================
+
+router.use('/auth', authRoutes);
+router.use('/users', usersRoutes);
+router.use('/messages', messagesRoutes);
+router.use('/automations', automationsRoutes);
 
 // ============================================
 // ROTAS DE LEADS
