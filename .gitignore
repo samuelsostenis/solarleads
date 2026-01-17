@@ -1,0 +1,97 @@
+# ============================================
+# SOLARLEADS - GITIGNORE
+# ============================================
+
+# ========== DEPENDÊNCIAS ==========
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ========== AMBIENTE ==========
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ========== BUILD ==========
+dist/
+build/
+.next/
+out/
+.nuxt/
+.cache/
+.parcel-cache/
+
+# ========== LOGS ==========
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ========== SISTEMA OPERACIONAL ==========
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# ========== IDEs ==========
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ========== WHATSAPP ==========
+auth_info_baileys/
+*_baileys_store*
+.wwebjs_auth/
+.wwebjs_cache/
+session-*
+
+# ========== DATABASE ==========
+*.db
+*.sqlite
+*.sqlite3
+backups/
+dumps/
+
+# ========== TEMPORÁRIOS ==========
+tmp/
+temp/
+*.tmp
+.temp/
+
+# ========== UPLOADS ==========
+uploads/
+public/uploads/
+
+# ========== TESTES ==========
+coverage/
+.nyc_output/
+*.lcov
+
+# ========== CERTIFICADOS ==========
+*.pem
+*.key
+*.crt
+*.cert
+
+# ========== OUTROS ==========
+.cache/
+.DS_Store
+.env.backup
+.vercel
+.turbo

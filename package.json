@@ -1,0 +1,59 @@
+{
+  "name": "solarleads",
+  "version": "1.0.0",
+  "description": "Sistema CRM inteligente para empresas de energia solar",
+  "author": "SolarLeads Team",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "whatsapp-service",
+    "ai-agents/*"
+  ],
+  "scripts": {
+    "install-all": "npm install && npm run install:frontend && npm run install:backend && npm run install:whatsapp",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:whatsapp": "cd whatsapp-service && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" --names \"API,WEB\" --prefix-colors \"bgBlue.bold,bgMagenta.bold\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:whatsapp": "cd whatsapp-service && npm run dev",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:whatsapp\" --names \"API,WEB,BOT\" --prefix-colors \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\"",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "npm run test:backend && npm run test:whatsapp",
+    "test:backend": "cd backend && npm test",
+    "test:whatsapp": "cd whatsapp-service && npm test",
+    "db:setup": "bash scripts/setup-database.sh",
+    "db:seed": "psql -U solarleads -d solarleads -f database/seed.sql",
+    "db:reset": "psql -U solarleads -d solarleads -f database/scripts/reset.sql",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "env:copy": "node -e \"const fs=require('fs');fs.copyFileSync('.env.example','.env');console.log('Copied .env.example to .env')\"",
+    "migrate": "node scripts/run-migrations.js",
+    "seed:admin": "node scripts/seed-admin.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "pg": "^8.12.0",
+    "bcryptjs": "^2.4.3"
+  },
+  
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "crm",
+    "solar",
+    "ai",
+    "whatsapp",
+    "automation",
+    "energia-solar"
+  ]
+}
